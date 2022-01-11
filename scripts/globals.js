@@ -28,41 +28,17 @@ const cursos = [
 let cursosInscritos = []
 
 
-
-// apuntamos elementos de html en variables mediante sus Id´s
-
-let nombre = document.getElementById("nombre");
-let correo = document.getElementById("correo");
-let nivelElegido = document.getElementById("nivel"); 
-let respuestaEstudiante = document.getElementById("respuestaEstudiante");
 let precioFinal = 0
 
 
-
-
-//primero hacemos variable que apunte a div infoCursos.
-let infoCursos = document.getElementById("infoCursos");
-//hacemos un loop que recorra cada curso de array cursos
-for (const nivel of cursos) {
-  // aquí creamos un div para recibir la info de cada curso del array
-  let cajaCurso = document.createElement("div");
-
-  //aqui inyectamos codigo html en cada div que guardará info del curso.
-
-  cajaCurso.innerHTML = `<h3> ${nivel.nombreNivel}</h3>
-                      <p> precio: $ ${nivel.costo} .00 </p>
-                      <p> Descuento estudiantil: ${nivel.descuentoUsuario}</p>
-                      `;
-  // aquí hacemos de cada caja, un hijo del id "infoCursos" creada en HTML
-  infoCursos.appendChild(cajaCurso);
-
- 
-  
-
+for(const nivel of cursos){
+  $("#infoCursos").append(
+                  `<h3> ${nivel.nombreNivel}</h3>
+                    <p> precio: $ ${nivel.costo} .00 </p>
+                    <p> Descuento estudiantil: ${nivel.descuentoUsuario}</p>
+                    `
+  )
 }
 
-let botonImprime = document.getElementById("imprimeInfo");
-
-botonImprime.addEventListener("click", renderizeInfo);
-
+$("#imprimeInfo").on("click", renderizeInfo);
 
