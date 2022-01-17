@@ -40,5 +40,5 @@ for(const nivel of cursos){
   )
 }
 
-$("#imprimeInfo").on("click", renderizeInfo);
+$("#imprimeInfo").on("click", renderizeInfo); //error: renderize info is not defined. 
 

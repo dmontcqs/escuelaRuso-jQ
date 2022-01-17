@@ -1,6 +1,7 @@
 contadorA = 0; //contador de renderizeInfo
 
-// función que imprime inputs de usuario
+// función que imprime inputs de usuario 
+//
 function renderizeInfo() {
   if (contadorA == 0) {
     //if para detener el renderizado
@@ -101,3 +102,23 @@ function guardarCurso() {
   let almacenados = JSON.parse(localStorage.getItem("listaInscritos"));
   console.log(almacenados);
 }
+
+// ANIMATIONS CON JQUERY
+
+
+$( ".image-box" ).hover(function() {
+  $( "h1" ).animate({
+    fontSize: "2.5em",
+  }, 2000, "linear", function() {
+        $( ".left-box" ).animate(
+             { width: "900px"}, 4000);
+   });
+});
+
+
+$("#imprimeInfo").click(function(){
+    $(".right-box").animate({width: "+=380px"}, 3000, function(){});
+    $(".left-box").hide(); 
+    $(".center-box").animate({width: "+=380px"}, 3000, function(){})
+})
+
