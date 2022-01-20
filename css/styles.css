@@ -10,10 +10,9 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 3fr 4fr 1fr;
+  /* grid-template-rows:  3fr 4fr 1fr; */
   grid-template-areas:
-    "header header header"
-    "image-box image-box image-box"
+    "carousel carousel carousel"
     "left-box center-box right-box"
     "footer footer footer";
 }
@@ -21,17 +20,22 @@
 .h1 {
   text-align: center;
   margin-top: 160px;
-  color: cornflowerblue;
+  color:  whitesmoke;
+  font-size: 20px; 
 }
 
-.header {
-  grid-area: header;
-  background-color: cornflowerblue;
+.carousel{
+  grid-area: carousel; 
+ 
+}
+.carousel-item{
+  max-height: 500px; 
 }
 
 .image-box {
   background-image: url(https://www.descubrirelarte.es/wp-content/uploads/2018/09/Deportistas-1930-1931.jpg);
   grid-area: image-box;
+  /* PROPIEDAD IMPORTANTE PARA RESPONSIVENESS */
   background-size: cover;
 }
 
@@ -80,4 +84,19 @@ input:invalid {
 
 input:valid {
   border: 2px solid black;
+}
+
+.header .navbar {
+  height: 80px; 
+}
+
+.footer {
+  
+}
+
+.divHora{
+  color: whitesmoke;
+  float: right; 
+  text-align: right; 
+  margin: 25px; 
 }
