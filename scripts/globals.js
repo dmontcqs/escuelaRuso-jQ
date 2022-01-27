@@ -28,8 +28,8 @@ const cursos = [
 let cursosInscritos = []
 
 
-let precioFinal = 0
-
+// let precioFinal = 0
+// console.log(precioFinal); 
 
 for(const nivel of cursos){
   $("#infoCursos").append(

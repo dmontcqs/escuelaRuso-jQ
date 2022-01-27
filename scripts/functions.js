@@ -1,9 +1,10 @@
 contadorA = 0; //contador de renderizeInfo
+contadorB= 0; 
 
 // función que imprime inputs de usuario 
 //
 function renderizeInfo() {
-  if (contadorA == 0) {
+  //if (contadorA == 0) {
     //if para detener el renderizado
 
     $("#divDetalleCompra").append(`<div>
@@ -20,48 +21,78 @@ function renderizeInfo() {
                                         <label for="">Ingresa dinero</label>
                                       </div>
                                         <br />
-                                      <input type="number" required="required" id="inputDineroFinal" />
+
+                                        <select type="number" required="required" id="inputDineroFinal" class="form-select" aria-label="Default select example">
+                                        <option selected>Ingresa cantidad indicada</option>
+                                        <option value=900>900.00</option>
+                                        <option value=1000>$1000.00</option>
+                                        <option value=1600>$1600.00</option>
+                                        <option value=2000>$2000.00</option>
+                                        <option value=2700>$2700.00</option>
+                                        <option value=3000>$3000.00</option>
+                                      </select>
+
                                           <div id="DivBotonInscripcion">
-                                            <button type="button" id="btnInscripcion">Inscribete</button>
+
+                                          <button type="button" id="btnInscripcion" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">PAGAR</button>
+
                                           </div>
                                           
                                    </div>`);
 
     $("#btnInscripcion").on("click", mensajeInscripcion);
-    contadorA++;
-  } else {
-    alert("Está lista la información de tu curso");
-  }
+
 }
 
 // BOTON INSCRIPCIÓN
 
-contadorB = 0;
 
-function mensajeInscripcion() {
-  let dineroIngresado = $("#inputDineroFinal").val();
-  let dineroNumber = parseInt(dineroIngresado);
+let precioFinal = 0;
+console.log(precioFinal); 
 
-  if (contadorB == 0) {
-    if (dineroNumber !== precioFinal) {
-      $("#DivBotonInscripcion").append(
-        `<p>Ingresa correctamente la cantidad de ${precioFinal}</p>`
-      );
-    } else {
-      $("#DivBotonInscripcion").append(
-        `<p>Te has inscrito exitosamente a tu curso de Ruso ${$(
-          "#nivelElegido"
-        ).val()}</p>`
-      );
-      contadorB++;
-      guardarCurso();
-    }
-  } else {
-    alert("Ya te has inscrito exitosamente");
-  }
+
+function mensajeInscripcion(){
+
+  let dineroIngresado = $("#inputDineroFinal").val();  
+  let dineroNumber = parseInt(dineroIngresado);  
+
+
+if (contadorB == 0){
+
+  if (dineroNumber !== precioFinal) {
+        alert("Ingresa correctamente la cantidad indicada"); 
+        guardarCurso(); 
+        }
+  else if(dineroNumber === precioFinal){     
+        $("#DivBotonInscripcion").append(`
+        <p class="message blockquote">FELICIDADES! acabas de inscribirte a tu curso de ruso ${$(
+                  "#nivelElegido").val()}. 🎉🎉🎉 <br> Eviaremos la información al correo proporcionado.</p>`);
+        guardarCurso();
+        contadorB++;
+        }
 }
+else{
+  $("#DivBotonInscripcion").append(
+            `<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+              <div class="modal-content">
+               <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">ESCUELA RUSO dice:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            <div class="modal-body">
+              <p>YA TE INSCRIBISTE A TU CURSO. Revisa tu correo para los pasos a seguir</p>
+            </div>
+    
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>`)
+  }
+}; 
 
-// función para checar nivel elegido en input y valorar el descuento para imprimir su precio final
 
 function costoNivel() {
   for (const nivel of cursos) {
@@ -111,7 +142,7 @@ $( ".image-box" ).hover(function() {
     fontSize: "2.5em",
   }, 2000, "linear", function() {
         $( ".left-box" ).animate(
-             { width: "900px"}, 4000);
+             { width: "85%"}, 2000);
    });
 });
 
