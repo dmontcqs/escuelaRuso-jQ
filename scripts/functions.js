@@ -142,14 +142,32 @@ $( ".image-box" ).hover(function() {
     fontSize: "2.5em",
   }, 2000, "linear", function() {
         $( ".left-box" ).animate(
-             { width: "85%"}, 2000);
+             { width: "70%"}, 2000);
    });
 });
 
 
 $("#imprimeInfo").click(function(){
-    $(".right-box").animate({width: "+=380px"}, 3000, function(){});
+    $(".right-box").animate({width: "+=30px"}, 1000, function(){});
     $(".left-box").hide(); 
-    $(".center-box").animate({width: "+=380px"}, 3000, function(){})
+    $(".center-box").animate({width: "-=50px", border: "10px solid #000;"    }, 3000, function(){})
 })
 
+// WEATHER API 
+
+var city =  "moscow";
+
+$.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=1a70ad7842bc94ac36c7c185861a0571", function(data)
+{
+console.log(data);
+
+var icon = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+
+console.log(icon);
+
+var temp = data.main.temp;
+
+$(".icon").attr("src", icon);
+$(".temp").append(temp + " " + "ºC");
+$(".cityname").append("Moscú es:")
+}); 

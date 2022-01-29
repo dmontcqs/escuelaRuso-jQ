@@ -118,6 +118,30 @@ input:valid {
 }
 
 
+/* WEATHER API  */
+
+.weather-container {
+  display: block;
+  float: right; 
+  color: whitesmoke;
+  padding-right: 25px;
+  font-family: Roboto;
+ 
+}
+
+.weather {
+  font-size: 25px;
+}
+
+.temp, .cityname {
+  font-size: 20px;
+  margin-top: 10px;
+} 
+
+.weather-container .img {
+  display: inline;
+}
+
 /* RESPONSIVENESS */
 
 @media (max-width: 980px) {

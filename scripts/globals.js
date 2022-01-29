@@ -28,9 +28,6 @@ const cursos = [
 let cursosInscritos = []
 
 
-// let precioFinal = 0
-// console.log(precioFinal); 
-
 for(const nivel of cursos){
   $("#infoCursos").append(
                   `<h3> ${nivel.nombreNivel}</h3>
@@ -40,31 +37,4 @@ for(const nivel of cursos){
   )
 }
 
-$("#imprimeInfo").on("click", renderizeInfo); //error: renderize info is not defined. 
-
-
-//llamado AJAX
-//podria cambiarlo a clima para no tener que actualizar permanentemente (?) 
-
-$( document ).ready(function() {
-    //Declaramos la url del API
-    const APIURL = 'http://worldtimeapi.org/api/timezone/Europe/Moscow' ;  
-    $.ajax({
-            method: "GET",
-            url:  APIURL,
-            
-            success: function imprime (respuesta){
-                const hora = respuesta.datetime
-                const horaFinal = hora.slice(11,19)
-                $(".footer").prepend(`<div class="divHora">
-                                      HORA ACTUAL EN MOSCÚ
-                                      <br>
-                                      ${horaFinal}
-                                      </div>`);
-            }
-    });
-   
-});
-
-
-
+$("#imprimeInfo").on("click", renderizeInfo); 
