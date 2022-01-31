@@ -4,9 +4,7 @@ contadorB= 0;
 // función que imprime inputs de usuario 
 //
 function renderizeInfo() {
-  //if (contadorA == 0) {
-    //if para detener el renderizado
-
+  
     $("#divDetalleCompra").append(`<div>
 
                                       <h2>DETALLE DE TU CURSO </h2>

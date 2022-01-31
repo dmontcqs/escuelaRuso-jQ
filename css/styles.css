@@ -14,7 +14,6 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-rows:  3fr 4fr 1fr; */
   grid-template-areas:
     "header header header"
     "carousel carousel carousel"
@@ -48,14 +47,13 @@ body {
   background-color: whitesmoke;
   grid-area: left-box;
   padding: 40px;
-  /* min-width: 100%; */
+  
 }
 
 .center-box {
   background-color: cornflowerblue;
   grid-area: center-box;
   min-width: 100%;
-  /* min-width: 400px;  */
   padding-bottom: 50px;
 }
 
@@ -149,7 +147,6 @@ input:valid {
   .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* grid-template-rows:  1fr 3fr 3fr 3fr 3fr 1fr; */
     grid-template-areas:
       "header header header"
       "carousel carousel carousel"
